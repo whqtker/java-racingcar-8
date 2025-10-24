@@ -17,4 +17,14 @@ public class CarService {
             carRepository.addCar(new Car(name, 0));
         }
     }
+
+    public void round(int loop) {
+        for (int i = 0; i < loop; i++) {
+            move();
+        }
+    }
+
+    private void move() {
+
+    }
 }

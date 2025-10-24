@@ -15,4 +15,8 @@ public class CarRepository {
     public void addCar(Car car) {
         this.cars.add(car);
     }
+
+    public List<Car> getCars() {
+        return cars;
+    }
 }

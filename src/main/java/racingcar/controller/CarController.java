@@ -16,8 +16,11 @@ public class CarController {
     }
 
     public void run() {
-        String inputString = carView.input();
+        String inputString = carView.inputNames();
         List<String> names = CarParser.parseCarNames(inputString);
         carService.registerCars(names);
+
+        int loop = carView.inputLoop();
+        carService.round(loop);
     }
 }
