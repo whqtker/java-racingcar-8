@@ -1,5 +1,6 @@
 package racingcar.service;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.repository.CarRepository;
@@ -25,6 +26,11 @@ public class CarService {
     }
 
     private void move() {
+        List<Car> cars = carRepository.getCars();
 
+        for (Car car : cars) {
+            int randomValue = Randoms.pickNumberInRange(0, 9);
+            car.move(randomValue);
+        }
     }
 }
