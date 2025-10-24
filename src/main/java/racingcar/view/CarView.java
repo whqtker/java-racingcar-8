@@ -22,4 +22,15 @@ public class CarView {
         }
         System.out.println();
     }
+
+    public void outputWinners(List<Car> cars) {
+        int maxPosition = cars.stream().mapToInt(Car::getPosition).max().orElse(0);
+
+        String winners = cars.stream()
+                .filter(c -> c.getPosition() == maxPosition)
+                .map(Car::getName)
+                .reduce((a, b) -> a + ", " + b)
+                .orElse("");
+        System.out.println("최종 우승자 : " + winners);
+    }
 }

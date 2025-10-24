@@ -25,5 +25,7 @@ public class CarController {
             carService.move();
             carView.outputRound(carService.getCars());
         }
+
+        carView.outputWinners(carService.getCars());
     }
 }
