@@ -21,6 +21,9 @@ public class CarController {
         carService.registerCars(names);
 
         int loop = carView.inputLoop();
-        carService.round(loop);
+        for (int i = 0; i < loop; i++) {
+            carService.move();
+            carView.outputRound(carService.getCars());
+        }
     }
 }

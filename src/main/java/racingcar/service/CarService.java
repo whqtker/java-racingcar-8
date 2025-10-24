@@ -19,18 +19,16 @@ public class CarService {
         }
     }
 
-    public void round(int loop) {
-        for (int i = 0; i < loop; i++) {
-            move();
-        }
-    }
-
-    private void move() {
+    public void move() {
         List<Car> cars = carRepository.getCars();
 
         for (Car car : cars) {
             int randomValue = Randoms.pickNumberInRange(0, 9);
             car.move(randomValue);
         }
+    }
+
+    public List<Car> getCars() {
+        return carRepository.getCars();
     }
 }
