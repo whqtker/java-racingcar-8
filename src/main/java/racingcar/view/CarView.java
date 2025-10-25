@@ -13,7 +13,18 @@ public class CarView {
 
     public int inputLoop() {
         System.out.println("시도할 횟수는 몇 회인가요?");
-        return Integer.parseInt(Console.readLine());
+        String line = Console.readLine();
+        try {
+            int attempt = Integer.parseInt(line);
+
+            if (attempt <= 0) {
+                throw new IllegalArgumentException("시도 횟수는 1회 이상이어야 합니다.");
+            }
+
+            return attempt;
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("시도 횟수는 숫자여야 합니다.");
+        }
     }
 
     public void outputRound(List<Car> cars) {
