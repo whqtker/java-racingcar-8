@@ -8,8 +8,15 @@ public class Car {
     private int position = 0;
 
     public Car(String name, int position) {
+        validateName(name);
         this.name = name;
         this.position = position;
+    }
+
+    private void validateName(String str) {
+        if (str.isEmpty() || str.length() > 5) {
+            throw new IllegalArgumentException("자동차 이름은 1 ~ 5자여야 합니다.");
+        }
     }
 
     public String getName() {
