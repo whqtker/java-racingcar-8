@@ -1,18 +1,20 @@
 package racingcar.service;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import racingcar.domain.Car;
 import racingcar.repository.CarRepository;
+import racingcar.util.NumberGenerator;
 
 public class CarService {
 
     private final CarRepository carRepository;
+    private final NumberGenerator numberGenerator;
 
-    public CarService(CarRepository carRepository) {
+    public CarService(CarRepository carRepository, NumberGenerator numberGenerator) {
         this.carRepository = carRepository;
+        this.numberGenerator = numberGenerator;
     }
 
     public void registerCars(List<String> names) {
@@ -35,7 +37,7 @@ public class CarService {
         List<Car> cars = carRepository.getCars();
 
         for (Car car : cars) {
-            int randomValue = Randoms.pickNumberInRange(0, 9);
+            int randomValue = numberGenerator.pick();
             car.move(randomValue);
         }
     }
