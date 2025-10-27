@@ -4,23 +4,16 @@ public class Car {
 
     private static final int MOVE_CONDITION = 4;
 
-    private String name;
+    private Name name;
     private int position = 0;
 
     public Car(String name, int position) {
-        validateName(name);
-        this.name = name;
+        this.name = new Name(name);
         this.position = position;
     }
 
-    private void validateName(String str) {
-        if (str.isEmpty() || str.length() > 5) {
-            throw new IllegalArgumentException("자동차 이름은 1 ~ 5자여야 합니다.");
-        }
-    }
-
     public String getName() {
-        return this.name;
+        return this.name.name();
     }
 
     public int getPosition() {
